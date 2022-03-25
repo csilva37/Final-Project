@@ -39,39 +39,7 @@
               Character
             </li>
           </router-link>
-            <router-link :to="{ path: '/class', name: 'Class' }">
-            <li
-              class="
-                py-8
-                px-4
-                hover:cursor-pointer hover:bg-gray-500 hover:text-gray-200
-              "
-            >
-              Class
-            </li>
-          </router-link>
-               <router-link :to="{ path: '/stats', name: 'Stats' }">
-            <li
-              class="
-                py-8
-                px-4
-                hover:cursor-pointer hover:bg-gray-500 hover:text-gray-200
-              "
-            >
-              Stats
-            </li>
-          </router-link>
-               <router-link :to="{ path: '/misc', name: 'Miscellaneous' }">
-            <li
-              class="
-                py-8
-                px-4
-                hover:cursor-pointer hover:bg-gray-500 hover:text-gray-200
-              "
-            >
-              Misc
-            </li>
-          </router-link>
+          
                <router-link :to="{ path: '/sheet', name: 'Character Sheet' }">
             <li
               class="

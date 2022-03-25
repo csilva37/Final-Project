@@ -4,9 +4,6 @@ import Index from "./pages/index.vue";
 import About from "./pages/about.vue";
 import Character from "./pages/character.vue";
 import NotFound from "./pages/404.vue";
-import Stats from "./pages/stats.vue";
-import Misc from "./pages/misc.vue";
-import Class from "./pages/class.vue";
 import Sheet from "./pages/sheet.vue";
 
 const routes = [
@@ -25,21 +22,6 @@ const routes = [
     name: "Character",
     component: Character,
   },
-  {
-      path: "/stats",
-      name: "Stats",
-      component: Stats,
-    },
-    {
-      path: "/class",
-      name: "Class",
-      component: Class,
-    },
-    {
-      path: "/misc",
-      name: "Miscellaneous",
-      component: Misc,
-    },
     {
       path: "/sheet",
       name: "Character Sheet",
