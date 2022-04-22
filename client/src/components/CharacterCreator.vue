@@ -16,7 +16,7 @@
             <option value="Half-Orc">Half-orc</option>
         </select> <br /> <br />
   <label for="class-list">Character Class: </label>
-          <select id="class-list" v-model="class">
+          <select id="class-list" v-model="classDND">
             <option value="Barbarian">Barbarian</option>
             <option value="Bard">Bard</option>
             <option value="Cleric">Cleric</option>
@@ -69,17 +69,17 @@
         <label for="character-background"> Enter in your Character's Background Story (Optional): </label>
         <input type="text" id="character-background" class="w-full h-40">
 
-        <p>{{ name }}</p>
-        <p>{{ race }}</p>
-        <p>{{ class }}</p>
-        <p>{{ strength }}</p>
-        <p>{{ dexterity }}</p>
-        <p>{{ constitution }}</p>
-        <p>{{ wisdom }}</p>
-        <p>{{ intelligence }}</p>
-        <p>{{ charisma }}</p>
-        <p>{{ language }}</p>
-        <p>{{ alignment }}</p>
+        <p>{{ name }}
+        {{ race }}
+        {{ classDND }}
+        {{ strength }}
+        {{ dexterity }}
+        {{ constitution }}
+        {{ wisdom }}
+        {{ intelligence }}
+        {{ charisma }}
+        {{ language }}
+        {{ alignment }}</p>
 
 </template>
 <script>
@@ -96,7 +96,8 @@
                 wisdom: "",
                 intelligence: "",
                 charisma: "",
-                language: ""
+                language: "",
+                alignment: ""
 
             }
         }
