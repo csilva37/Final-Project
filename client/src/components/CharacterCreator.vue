@@ -83,22 +83,40 @@
 
 </template>
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'CharacterCreator',
         data: function () {
             return {
-                name: "",
-                race: "",
-                class: "",
-                strength: "",
-                dexterity: "",
-                constitution: "",
-                wisdom: "",
-                intelligence: "",
-                charisma: "",
-                language: "",
-                alignment: ""
+                name: null,
+                classDND: null,
+                strength: null,
+                dexterity: null,
+                constitution: null,
+                wisdom: null,
+                intelligence: null,
+                charisma: null,
+                language: null, 
+                alignment: null
 
+            }
+        },
+        methods: {
+            postCharacter: function () {
+                axios
+                    .post('http://localhost:3000/characters', {
+                        name: this.name,
+                        classDND: this.classDND,
+                        strength: this.strength,
+                        dexterity: this.dexterity,
+                        constitution: this.constitution,
+                        wisdom: this.wisdom,
+                        intelligence: this.intelligence,
+                        charisma: this.charisma,
+                        language: this.language,
+                        alignment: this.alignment
+                    });
             }
         }
     }
