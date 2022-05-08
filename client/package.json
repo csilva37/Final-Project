@@ -1,0 +1,28 @@
+{
+  "name": "final-project",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^8.2.3",
+<<<<<<< HEAD:package.json
+    "firebase": "^9.8.0",
+=======
+    "axios": "^0.26.1",
+    "firebase": "^9.6.10",
+>>>>>>> a0388d728fae17c51fc6febf1d15a18c23fea384:client/package.json
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23",
+    "vite": "^2.8.0"
+  }
+}
