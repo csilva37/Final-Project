@@ -61,18 +61,6 @@ const loggingOut = () => {
               Character
             </li>
           </router-link>
-          
-               <router-link :to="{ path: '/sheet', name: 'Character Sheet' }">
-            <li
-              class="
-                py-8
-                px-4
-                hover:cursor-pointer hover:bg-gray-500 hover:text-gray-200
-              "
-            >
-              Character Sheet
-            </li>
-          </router-link>
            <button @click="loggingOut">
               <li
                 class="px-4 py-8  hover:cursor-pointer hover:bg-green-500 hover:text-green-800"

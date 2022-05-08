@@ -6,7 +6,6 @@ import About from "./pages/about.vue";
 import Login from "./pages/login.vue";
 import Character from "./pages/character.vue";
 import NotFound from "./pages/404.vue";
-import Sheet from "./pages/sheet.vue";
 
 const { isAuthenticated } = useAuth();
 
@@ -38,18 +37,6 @@ const routes = [
       next();
     },
   },
-    {
-      path: "/sheet",
-      name: "Character Sheet",
-      component: Sheet,
-      beforeEnter: (to, from, next) => {
-        console.log(isAuthenticated);
-        if (!isAuthenticated.value) {
-          next("/login");
-        }
-        next();
-      },
-    },
     {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

@@ -1,3 +1,49 @@
+<script setup>
+import { onUnmounted, ref } from 'vue'
+import useCharacters from '../composable/useCharacters'
+import useAuth from '../composable/useAuth'
+
+const {charactersDND, unsubscribe, sendCharacters } = useCharacters()
+
+var name = "";
+var race = "";
+var classDND = "";
+var strength = "";
+var dexterity = "";
+var constitution = "";
+var wisdom = "";
+var intelligence = "";
+var charisma = "";
+var alignment = "";
+
+const { user } = useAuth()
+
+const newCharacterDND = {}
+
+const send = (name, race, classDND, strength, dexterity, constitution, wisdom, intelligence, charisma, alignment) => {
+    newCharacterDND.value = ({
+        Name: name,
+        Race: race, 
+        Class: classDND,
+        Strength: strength,
+        Dexterity: dexterity,
+        Constitution: constitution,
+        Wisdom: wisdom,
+        Intelligence: intelligence,
+        Charisma: charisma,
+        Alignment: alignment,
+    })
+
+    console.table(charactersDND.value)
+    sendCharacters(newCharacterDND.value)
+}
+
+onUnmounted(() => {
+    unsubscribe()
+})
+</script>
+
+
 <template>
   <h1>Your Character </h1>
   <label for="character name">Character Name: </label>
@@ -16,7 +62,7 @@
             <option value="Half-Orc">Half-orc</option>
         </select> <br /> <br />
   <label for="class-list">Character Class: </label>
-          <select id="class-list" v-model="class">
+          <select id="class-list" v-model="classDND">
             <option value="Barbarian">Barbarian</option>
             <option value="Bard">Bard</option>
             <option value="Cleric">Cleric</option>
@@ -43,17 +89,6 @@
     <input type="number" id="intelligence" v-model="intelligence"><br /> <br />
     <label for="charisma"> Charisma: </label>
     <input type="number" id="charisma" v-model="charisma"><br /> <br />
-    <label for="exotic-language-list"> Choose an Exotic Language to learn: </label>
-        <select id="language-list" v-model="language">
-            <option value="Abyssal">Abyssal</option>
-            <option value="Celestial">Celestial</option>
-            <option value="Draconic">Draconic</option>
-            <option value="Deep Speech">Deep Speech</option>
-            <option value="Infernal">Infernal</option>
-            <option value="Primordial">Primordial</option>
-            <option value="Sylvan">Sylvan</option>
-            <option value="Undercommon">Undercommon</option>
-        </select><br /> <br />
         <label for="moral-alignment-list"> Choose a Moral Alignment for your character: </label>
         <select id="alignment-list" v-model="alignment">
             <option value="Lawful Good">Lawful Good</option>
@@ -66,39 +101,21 @@
             <option value="Chaotic Neutral">Chaotic Neutral</option>
             <option value="Chaotic Evil">Chaotic Evil</option>
         </select><br /> <br />
-        <label for="character-background"> Enter in your Character's Background Story (Optional): </label>
-        <input type="text" id="character-background" class="w-full h-40">
+        <button class="bg-lime-500 w-1/5 rounded-xl mt-3" @click="send(name, race, classDND, strength, dexterity, constitution, wisdom, intelligence, charisma, alignment)">
+        Create Character </button>
+    
 
-        <p>{{ name }}</p>
-        <p>{{ race }}</p>
-        <p>{{ class }}</p>
-        <p>{{ strength }}</p>
-        <p>{{ dexterity }}</p>
-        <p>{{ constitution }}</p>
-        <p>{{ wisdom }}</p>
-        <p>{{ intelligence }}</p>
-        <p>{{ charisma }}</p>
-        <p>{{ language }}</p>
-        <p>{{ alignment }}</p>
+        
+        <ul class="p-4 space-y-4">
+            <li v-for="characterDND in charactersDND" :key="characterDND.id">
+                <div class="flex justify-between bg-gray-200 px-4 py-2 rounded-lg">
+                    <span>{{ characterDND.Name }} </span><span>{{ characterDND.Race }}</span>
+                    <span>{{ characterDND.Class }} </span><span>{{ characterDND.Strength }}</span>
+                    <span>{{ characterDND.Dexterity }} </span><span>{{ characterDND.Constitution }}</span>
+                    <span>{{ characterDND.Wisdom }} </span><span>{{ characterDND.Intelligence }}</span>
+                    <span>{{ characterDND.Charisma}} </span><span>{{ characterDND.Alignment }}</span>
+        </div>
+      </li>
+    </ul>
 
 </template>
-<script>
-    export default {
-        name: 'CharacterCreator',
-        data: function () {
-            return {
-                name: "",
-                race: "",
-                class: "",
-                strength: "",
-                dexterity: "",
-                constitution: "",
-                wisdom: "",
-                intelligence: "",
-                charisma: "",
-                language: ""
-
-            }
-        }
-    }
-</script>
